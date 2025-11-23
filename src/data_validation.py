@@ -7,25 +7,6 @@ from diffprivlib.mechanisms import Laplace
 
 
 def validate_closet_data(df):
-    """
-    Performs your full trustworthiness pipeline:
-    - schema validation
-    - season cleaning
-    - duplicate removal
-    - distribution checks
-    - imbalance flags
-    - differential privacy noise
-    - metadata export
-    - risk export
-
-    Returns:
-        df (cleaned DataFrame)
-        report (dict with all computed statistics)
-    """
-
-    # -------------------------
-    # 🔎 SCHEMA CHECK
-    # -------------------------
     season = {"Winter", "Fall", "Spring", "Summer", "All"}
     feat = ["Item_ID", "Type", "Color", "Season", "Occasion", "Material"]
 
@@ -33,9 +14,7 @@ def validate_closet_data(df):
     assert not missing, f"Missing columns: {missing}"
     assert df["Item_ID"].notna().all(), "Item_ID cannot be null"
 
-    # -------------------------
-    # 🍂 CLEAN SEASON COLUMN
-    # -------------------------
+
     def clean_season(val):
         if val is None:
             return ["All"]
@@ -57,9 +36,7 @@ def validate_closet_data(df):
 
     df["Season_display"] = df["Season"].apply(lambda x: ", ".join(x))
 
-    # -------------------------
-    # 🧹 REMOVE DUPLICATES
-    # -------------------------
+
     temp_df = df.copy()
     temp_df["Season"] = temp_df["Season"].apply(tuple)
 
@@ -68,9 +45,6 @@ def validate_closet_data(df):
         df = df.loc[~temp_df.duplicated()].reset_index(drop=True)
         print("Dropped duplicates:", dupes)
 
-    # -------------------------
-    # 📊 DISTRIBUTION CHECKS
-    # -------------------------
     def print_share(col):
         col_str = col.apply(lambda x: ", ".join(x) if isinstance(x, list) else str(x))
         return col_str.value_counts(normalize=True)
@@ -81,9 +55,6 @@ def validate_closet_data(df):
     season_imbalanced = season_dist.max() > 0.60
     occasion_imbalanced = occasion_dist.max() > 0.60
 
-    # -------------------------
-    # 🔒 DIFFERENTIAL PRIVACY
-    # -------------------------
     winter_count = df["Season"].apply(lambda x: "Winter" in x).sum()
 
     laplace = Laplace(epsilon=1.0, sensitivity=1)
@@ -91,9 +62,6 @@ def validate_closet_data(df):
 
     print(f"Winter count true={winter_count}  dp_noised={round(dp_value)}  (ε=1.0)")
 
-    # -------------------------
-    # 📝 EXPORT METADATA & RISKS
-    # -------------------------
     os.makedirs("data", exist_ok=True)
 
     metadata = {
@@ -122,9 +90,6 @@ def validate_closet_data(df):
 
     print("Wrote data/metadata.json and data/risk.csv")
 
-    # -------------------------
-    # 📦 RETURN EVERYTHING
-    # -------------------------
     report = {
         "season_dist": season_dist.to_dict(),
         "occasion_dist": occasion_dist.to_dict(),
