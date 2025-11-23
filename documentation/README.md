@@ -31,15 +31,15 @@ The primary script is:
 ```bash
 src/main.py
 ```
-### `Video Demonstration/`
-### `deployment/`
+### 4. Video Demonstration
+### 5. Deployment Strategy
 Containerization assets:
 
 - `Dockerfile` (planned or optional)
 - `environment.yml` or `requirements.txt`
 - Run instructions for launching in a cloud or container environment
 
-### `monitoring and metrics/`
+### 6. `monitoring and metrics/`
 Performance monitoring configuration:
 
 - Scripts for collecting latency, scoring metrics
