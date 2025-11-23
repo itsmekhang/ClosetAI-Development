@@ -1,0 +1,4 @@
+Phase,Risk,Mitigation,Remaining Risk
+Data Collection,Representativeness bias,Distribution checks and targeted augmentation,Moderate
+Privacy,Summary Leakage,Differential-privacy noise on summaries,Low
+Data Quality,Schema drift,Controlled misspelling and validation; Prevent ingestion if validation failed,Low
