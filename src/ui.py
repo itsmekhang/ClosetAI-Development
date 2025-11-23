@@ -4,7 +4,38 @@ from src.model_pipeline import preprocess_closet, parse_prompt, generate_outfit,
 from src.data_validation import validate_closet_data
 import requests
 import numpy as np
+import time
+from datetime import datetime
+import os
+import csv
+def log_metrics(inference_time, city, weather, style):
+    os.makedirs("monitoring", exist_ok=True)
+    log_path = "monitoring/metrics_log.csv"
 
+    header = [
+        "timestamp", "city", "temp_f", "condition",
+        "is_rain", "is_hot", "is_cold", "style", "inference_time_sec"
+    ]
+
+    file_exists = os.path.isfile(log_path)
+
+    with open(log_path, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+
+        if not file_exists:  
+            writer.writerow(header)
+
+        writer.writerow([
+            datetime.now().isoformat(),
+            city,
+            weather["temp"],
+            weather["condition"],
+            weather["is_rain"],
+            weather["is_hot"],
+            weather["is_cold"],
+            style,
+            round(inference_time, 4)
+        ])
 
 def outfit_ui(city, prompt, file_obj):
     if file_obj:
@@ -16,7 +47,7 @@ def outfit_ui(city, prompt, file_obj):
     df = preprocess_closet(df, model)
 
     # Weather lookup
-    API_KEY = "3a778d3798ca4308bab74531252311"
+    API_KEY = "6f44360e000b4bf3847100146252311"
     r = requests.get(f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={city}")
     w = r.json()
 
@@ -35,7 +66,12 @@ def outfit_ui(city, prompt, file_obj):
     style = parse_prompt(prompt)
     season = get_season()
 
+    start = time.time()
+
     outfit = generate_outfit(df, weather, season, style, model)
+    inference_time = time.time() - start
+    print(f"Inference Time: {inference_time:.4f} seconds")
+    log_metrics(inference_time, city, weather, style)
 
     result = f"### Weather in {city}: {temp}°F — {condition}\n"
     result += f"**Season:** {season}\n"
@@ -49,7 +85,7 @@ def outfit_ui(city, prompt, file_obj):
 
 def launch_ui():
     with gr.Blocks() as demo:
-        gr.Markdown("## 👕 ClosetAI — AI Personal Stylist")
+        gr.Markdown("## ClosetAI — AI Personal Stylist")
 
         with gr.Row():
             city = gr.Textbox(label="City")
