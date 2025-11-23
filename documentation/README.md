@@ -32,6 +32,7 @@ The primary script is:
 src/main.py
 ```
 ### 4. Video Demonstration
+[Watch System Demo](videos/demo video.mp4)
 ### 5. Deployment Strategy
 ### **Running Locally**
 
