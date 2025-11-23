@@ -75,6 +75,7 @@ python -m src.main
 ```
 
 Then visit:
+```bash
 http://127.0.0.1:7860
 
 ClosetAI/
