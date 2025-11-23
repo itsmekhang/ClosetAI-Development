@@ -24,7 +24,13 @@ Core system code:
 - `model_pipeline.py` — preprocessing, categorization, scoring, and outfit generation
 - `data_validation.py` — schema checks, imbalance analysis, differential privacy, risk logs
 - `ui.py` — Gradio user interface
+- 
+## **System Entry Point**
 
+The primary script is: 
+```bash
+src/main.py
+```
 ### `deployment/`
 Containerization assets:
 
@@ -36,32 +42,13 @@ Containerization assets:
 Performance monitoring configuration:
 
 - Scripts for collecting latency, scoring metrics
-- Prometheus/Grafana config (optional)
 - Example exported metrics (CSV or JSON)
 
 ### `documentation/`
 All written reports and templates:
 
 - AI System Project Proposal  
-- System Architecture Report  
-- Performance Metrics Report  
-- Risk Analysis Notes  
-- HCI Wireframes / Screenshots  
-
-### `videos/`
-Demo screencasts showing:
-
-- Full system workflow  
-- Gradio UI in action  
-- Data validation logs  
-- Model outputs under multiple scenarios  
-
----
-
-## **System Entry Point**
-
-The primary script is: src/main.py
-
+- Project Report  
 
 ### **Running Locally**
 
