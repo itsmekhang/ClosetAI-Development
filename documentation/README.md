@@ -1,4 +1,4 @@
-# 👕 ClosetAI — Intelligent Weather-Adaptive Outfit Recommendation System
+# ClosetAI — Intelligent Weather-Adaptive Outfit Recommendation System
 
 ClosetAI is an end-to-end AI system that recommends outfits based on the user’s closet, weather conditions, the season, and natural-language prompts (e.g., “going to a party,” “business meeting,” “gym”).  
 The system integrates:
@@ -6,7 +6,7 @@ The system integrates:
 - Semantic embeddings (SentenceTransformer)
 - NLP intent parsing (spaCy)
 - Weather-aware scoring logic
-- Differential privacy on statistics
+- Differential privacy
 - Structured data validation
 - A full Gradio interface for real-time interaction
 - Modular architecture with clear trustworthiness, HCI, and lifecycle components
@@ -15,7 +15,7 @@ This project was developed for **EGN 6216 Artificial Inteligence Sytems** and fo
 
 ---
 
-## 📁 Repository Contents
+## 2. Repository Contents
 
 ### `src/`
 Core system code:
@@ -25,7 +25,7 @@ Core system code:
 - `data_validation.py` — schema checks, imbalance analysis, differential privacy, risk logs
 - `ui.py` — Gradio user interface
 - 
-## **System Entry Point**
+## **3. System Entry Point**
 
 The primary script is: 
 ```bash
@@ -38,7 +38,7 @@ Containerization assets:
 - `environment.yml` or `requirements.txt`
 - Run instructions for launching in a cloud or container environment
 
-### `monitoring/`
+### `monitoring and metrics/`
 Performance monitoring configuration:
 
 - Scripts for collecting latency, scoring metrics
