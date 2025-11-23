@@ -1,0 +1,12 @@
+pandas
+numpy
+sentence-transformers
+torch
+transformers
+spacy
+diffprivlib
+gradio
+requests
+tqdm
+scikit-learn
+python-dateutil
