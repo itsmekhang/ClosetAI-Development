@@ -31,6 +31,7 @@ The primary script is:
 ```bash
 src/main.py
 ```
+### `Video Demonstration/`
 ### `deployment/`
 Containerization assets:
 
@@ -73,8 +74,18 @@ ClosetAI/
 │   ├── ui.py
 │   ├── model_pipeline.py
 │   ├── data_validation.py
-│
+│   ├──data/
+|      ├── closet.csv
+|      ├── imbalance_report.csv
+|      ├── metadata.json
+|      ├── occasion_distribution.csv
+|      ├── risk.csv
+|      ├── season_distribution.csv
+|
 │── documentation/
+|   ├── README.md
+|   ├── project report.pdf
+|
 │── deployment/
 │── monitoring/
 │── videos/
