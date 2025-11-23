@@ -11,7 +11,7 @@ The system integrates:
 - A full Gradio interface for real-time interaction
 - Modular architecture with clear trustworthiness, HCI, and lifecycle components
 
-This project was developed for **CIS6261 Trustworthy Machine Learning** and follows NIST AI RMF, privacy, and HCI guidelines.
+This project was developed for **EGN 6216 Artificial Inteligence Sytems** and follows NIST AI RMF, privacy, and HCI guidelines.
 
 ---
 
