@@ -90,6 +90,8 @@ ClosetAI/
 |
 │── deployment/
 │── monitoring/
+|   ├──metrics_log.csv
+|
 │── videos/
 │── requirements.txt
 │── README.md
