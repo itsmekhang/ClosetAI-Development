@@ -61,5 +61,34 @@ Demo screencasts showing:
 
 ## ▶️ **System Entry Point**
 
-The primary script is:
+The primary script is: src/main.py
+
+
+### **Running Locally**
+
+From project root:
+
+```bash
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+python -m src.main
+```
+
+Then visit:
+http://127.0.0.1:7860
+
+ClosetAI/
+│── src/
+│   ├── main.py
+│   ├── ui.py
+│   ├── model_pipeline.py
+│   ├── data_validation.py
+│   └── utils.py
+│
+│── documentation/
+│── deployment/
+│── monitoring/
+│── videos/
+│── requirements.txt
+│── README.md
 
