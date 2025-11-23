@@ -24,7 +24,6 @@ Core system code:
 - `model_pipeline.py` — preprocessing, categorization, scoring, and outfit generation
 - `data_validation.py` — schema checks, imbalance analysis, differential privacy, risk logs
 - `ui.py` — Gradio user interface
-- `utils.py` — shared helper functions (optional)
 
 ### `deployment/`
 Containerization assets:
@@ -59,7 +58,7 @@ Demo screencasts showing:
 
 ---
 
-## ▶️ **System Entry Point**
+## **System Entry Point**
 
 The primary script is: src/main.py
 
@@ -87,7 +86,6 @@ ClosetAI/
 │   ├── ui.py
 │   ├── model_pipeline.py
 │   ├── data_validation.py
-│   └── utils.py
 │
 │── documentation/
 │── deployment/
