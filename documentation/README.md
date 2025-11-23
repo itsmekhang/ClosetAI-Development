@@ -53,13 +53,13 @@ Containerization assets:
 - `environment.yml` or `requirements.txt`
 - Run instructions for launching in a cloud or container environment
 
-### 6. `monitoring and metrics/`
+### 6. Monitoring and Metrics
 Performance monitoring configuration:
 
 - Scripts for collecting latency, scoring metrics
 - Example exported metrics (CSV or JSON)
 
-### `documentation/`
+### 7. Documentation
 All written reports and templates:
 
 - AI System Project Proposal  
