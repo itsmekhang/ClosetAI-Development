@@ -57,12 +57,20 @@ def validate_closet_data(df):
 
     winter_count = df["Season"].apply(lambda x: "Winter" in x).sum()
 
-    laplace = Laplace(epsilon=1.0, sensitivity=1)
+    laplace = Laplace(epsilon = 1.0, sensitivity = 1)
     dp_value = laplace.randomise(winter_count)
 
     print(f"Winter count true={winter_count}  dp_noised={round(dp_value)}  (ε=1.0)")
 
     os.makedirs("data", exist_ok=True)
+    
+    season_dist.to_csv("data/season_distribution.csv", header=["proportion"])
+    occasion_dist.to_csv("data/occasion_distribution.csv", header=["proportion"])
+    imbalance_report = pd.DataFrame({
+        "metric": ["season_imbalanced", "occasion_imbalanced"],
+        "value": [season_imbalanced, occasion_imbalanced]
+    })
+    imbalance_report.to_csv("data/imbalance_report.csv", index=False)
 
     metadata = {
         "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
