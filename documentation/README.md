@@ -77,7 +77,10 @@ python -m src.main
 Then visit:
 ```bash
 http://127.0.0.1:7860
+```
 
+Repository structure:
+```bash
 ClosetAI/
 │── src/
 │   ├── main.py
@@ -92,4 +95,4 @@ ClosetAI/
 │── videos/
 │── requirements.txt
 │── README.md
-
+```
