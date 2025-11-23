@@ -64,7 +64,7 @@ Performance monitoring configuration:
 All written reports and templates:
 
 - AI System Project Proposal  
-- [Project Report](documentation/project report.pdf)
+- [Project Report](documentation/project%20report.pdf)
 
 
 
