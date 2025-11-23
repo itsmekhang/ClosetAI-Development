@@ -33,6 +33,20 @@ src/main.py
 ```
 ### 4. Video Demonstration
 ### 5. Deployment Strategy
+### **Running Locally**
+
+From project root:
+
+```bash
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+python -m src.main
+```
+
+Then visit:
+```bash
+http://127.0.0.1:7860
+```
 Containerization assets:
 
 - `Dockerfile` (planned or optional)
@@ -51,20 +65,7 @@ All written reports and templates:
 - AI System Project Proposal  
 - Project Report  
 
-### **Running Locally**
 
-From project root:
-
-```bash
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-python -m src.main
-```
-
-Then visit:
-```bash
-http://127.0.0.1:7860
-```
 
 Repository structure:
 ```bash
